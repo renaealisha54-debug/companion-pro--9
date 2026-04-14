@@ -1,0 +1,36 @@
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { Previewer } from "./components/Previewer";
+import CodeMirror from "@uiw/react-codemirror";
+import { javascript } from "@codemirror/lang-javascript";
+import { oneDark } from "@codemirror/theme-one-dark";
+
+export default function IDE() {
+  const [code, setCode] = React.useState("// Write your HTML/JS here");
+
+  return (
+    <div className="h-screen w-screen bg-background overflow-hidden flex flex-col">
+      {/* Top Header/Breadcrumbs go here */}
+      
+      <PanelGroup direction="horizontal" className="flex-1">
+        <Panel defaultSize={50} minSize={20}>
+          <CodeMirror
+            value={code}
+            height="100%"
+            theme={oneDark}
+            extensions={[javascript({ jsx: true })]}
+            onChange={(value) => setCode(value)}
+            className="h-full text-sm"
+          />
+        </Panel>
+        
+        <PanelResizeHandle className="w-1 bg-border hover:bg-primary transition-colors cursor-col-resize" />
+        
+        <Panel defaultSize={50}>
+          <Previewer code={code} />
+        </Panel>
+      </PanelGroup>
+      
+      {/* StatusBar goes here */}
+    </div>
+  );
+}
