@@ -1,5 +1,0 @@
-const [files, setFiles] = useState({
-  "index.html": "<h1>Hello</h1>",
-  "style.css": "h1 { color: red; }",
-  "script.js": "console.log('hi')"
-});
