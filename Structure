@@ -1,0 +1,10 @@
+├── src/
+│   ├── components/
+│   │   ├── Previewer.tsx      # Sandbox execution logic
+│   │   ├── ChatSidebar.tsx    # AI interaction UI
+│   │   └── ui/                # Shadcn primitives
+│   ├── lib/
+│   │   └── languages.ts       # CodeMirror configuration
+│   └── App.tsx                # Main IDE Layout
+├── public/                    # Static assets & manifest
+└── bun.lock                   # Dependency lockfile
